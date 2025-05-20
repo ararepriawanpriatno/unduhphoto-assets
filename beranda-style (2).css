@@ -1,0 +1,308 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle-loader-wrapper {
+  text-align: center;
+  position: relative;
+}
+
+.circle-loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.logo-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.progress-ring-circle {
+  stroke-dasharray: 565.48; /* 2 * π * r (2π × 90) */
+  stroke-dashoffset: 565.48;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: circle-progress 3s linear forwards;
+}
+
+@keyframes circle-progress {
+  from {
+    stroke-dashoffset: 565.48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.loading-text {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.logo-center {
+  animation: blink 1.5s infinite;
+}
+
+  #loginFormWrapper {
+    max-width: 350px;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .avatar-container {
+    margin-bottom: 15px;
+  }
+
+  .avatar-container img {
+    width: 100%;
+    height: auto;
+    max-width: 180px; /* lebih kecil agar compact */
+    border: 1px solid #bbb; /* warna border lebih soft */
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .form-login {
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  input.form-control {
+    width: 100%;
+    border-radius: 50px;
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  button.btn-primary {
+    width: 100%;
+    border-radius: 50px;
+    padding: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .title-login {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .text-center.mt-3 {
+    margin-top: 15px !important;
+  }
+
+  a.text-secondary {
+    font-size: 13px;
+  }
+  
+  .form-container {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  position: relative;
+}
+
+.form-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* Overlay modal, tersembunyi secara default */
+.modal-overlay {
+  display: none;            /* disembunyikan */
+  position: fixed;          /* posisi menyelimuti seluruh layar */
+  top: 0; left: 0;          
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* latar semi-transparan */
+  justify-content: center;  
+  align-items: center;
+  z-index: 1000;            /* pastikan di atas konten lainnya */
+}
+
+/* Saat ingin menampilkan modal, tambahkan kelas .active atau set display:flex via JS */
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Kotak konten modal */
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Tombol tutup di pojok kanan atas */
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Form-container (login & register) */
+.form-container {
+  display: none;            /* disembunyikan default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Saat form ingin ditampilkan, tambahkan kelas .show via JS */
+.form-container.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Styling judul form */
+.title-login {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Avatar / QR container */
+.avatar-container img {
+  max-width: 150px;
+  border: 2px solid #eee;
+  border-radius: 4px;
+}
+
+/* Spasi antar form-group */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Full-width tombol */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Pesan menunggu scan */
+#waitingMessage {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+  text-align: center;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  animation: fadeIn 1.5s ease-in-out;
+}
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+
+    .login-container {
+        display: flex;
+        max-width: 800px;
+        margin: 50px auto;
+        background: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        font-family: sans-serif;
+    }
+
+    .qr-section {
+        flex: 1;
+        background: #e0e0e0;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .qr-section img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .login-form-section {
+        flex: 1;
+        padding: 30px;
+    }
+
+    .login-form-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-form-section label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .login-form-section input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .login-form-section button {
+        width: 100%;
+        padding: 10px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login-form-section p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .login-container {
+            flex-direction: column;
+        }
+
+        .qr-section, .login-form-section {
+            width: 100%;
+        }
+    }
