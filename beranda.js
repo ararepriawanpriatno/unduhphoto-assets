@@ -185,15 +185,15 @@ document.addEventListener('keydown', function(e) {
 });
 
 setInterval(function () {
-    fetch("status_cek.php")
+    fetch("/bridge.php?action=status_cek")
         .then(response => response.text())
         .then(status => {
             if (status.trim() === "daftar") {
                 // Reset status supaya tidak berulang
-                fetch("status_reset.php"); 
+                fetch("/bridge.php?action=status_reset"); 
 
                 // Tampilkan form pendaftaran atau redirect
-                window.location.href = "daftar.php";
+                window.location.href = "/bridge.php?action=form_daftar";
             }
         });
 }, 3000); // cek tiap 3 detik
